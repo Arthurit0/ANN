@@ -2,8 +2,7 @@
 
 #define ROWS 3
 
-void seidei(double A[ROWS][ROWS], double B[ROWS], double est[ROWS], int n){
-    // double next[ROWS]; 
+void seidel(double A[ROWS][ROWS], double B[ROWS], double est[ROWS], int n){
     for (int k = 0; k < n; k++){
         for (int i = 0; i < ROWS; i++){
             double bi=B[i];
@@ -19,26 +18,21 @@ void seidei(double A[ROWS][ROWS], double B[ROWS], double est[ROWS], int n){
             est[i]=bi;
         }
         printf("\n");
-        // Atualizar chute
-        // for (int i = 0; i < ROWS; i++)
-        // {
-        //     est[i] = next[i];
-        // }
-        
+        // Atualizar o valor chute não é necessário como no método de Jacobi
     }
     
 }
 
-// Exemplo
-
 int main(int argc, char const *argv[]){
     
+    // Coeficientes do Sistema em que aplicaremos a técnica
     double A[ROWS][ROWS]={{4,1,-1},{-1,3,1},{1,-1,5}};
+    // Termos independentes
     double B[ROWS] = {5,6,4};
-
+    // Estimativa de soluções
     double est_ini[ROWS] = {-1,-1,-1};
+    // Iterações
     int n = 10;
 
-    seidei(A,B,est_ini, n);
-
+    seidel(A,B,est_ini, n);
 }

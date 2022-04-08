@@ -10,7 +10,6 @@ void jacobi(double A[ROWS][ROWS], double B[ROWS], double est[ROWS], int n){
             for (int j = 0; j < ROWS; j++){
                 if(j != i){
                     bi -= A[i][j]* est[j];
-
                 }
             }
             bi /= A[i][i];
@@ -23,21 +22,19 @@ void jacobi(double A[ROWS][ROWS], double B[ROWS], double est[ROWS], int n){
         {
             est[i] = next[i];
         }
-        
     }
-    
 }
-
-// Exemplo
 
 int main(int argc, char const *argv[]){
     
+    // Coeficientes do Sistema em que aplicaremos a técnica
     double A[ROWS][ROWS]={{4,1,-1},{-1,3,1},{1,-1,5}};
+    // Termos independentes
     double B[ROWS] = {5,6,4};
-
+    // Estimativa de soluções
     double est_ini[ROWS] = {0,0,0};
+    // Iterações
     int n = 20;
 
     jacobi(A,B,est_ini, n);
-
 }
