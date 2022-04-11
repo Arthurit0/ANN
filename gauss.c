@@ -3,15 +3,19 @@
 
 #define ROWS 4
 #define COLS 5
+int steps = 1;
 
 void print_matrix(double matrix[ROWS][COLS]){
     for (int i = 0; i < ROWS; i++){
         for (int j = 0; j < COLS; j++){
-            printf("%f\t", matrix[i][j]);
+
+            if(matrix[i][j]>=0) printf(" ");
+
+            printf("%f   ", matrix[i][j]);
         }
         printf("\n");
     }
-    
+    printf("\n");
 }
 
 void gauss(double E[ROWS][COLS]){
@@ -19,30 +23,31 @@ void gauss(double E[ROWS][COLS]){
         for (int i = j; i < ROWS; i++){
             if (E[i][j] != 0){
                 if(i != j){
+                    // É preciso trocar linhas
                     for (int k = 0; k < COLS; k++){
                         double temp = E[i][k];
                         E[i][k] = E[j][k];
                         E[j][k] = temp;
                     }
-                    
                 }
-
                 
                 // Aplicar operações elementares em linha
-                // num * Lj + Lm -> Lm
-                for (int m = j+1; m < COLS; m++){
+                // a * Lj + Lm -> Lm
+                for (int m = j+1; m < ROWS; m++){
                     double a = -E[m][j] / E[j][j];
                     for(int n = j; n < COLS; n++){
-                        E[m][n] = a* E[j][n] + E[m][n];
+                        E[m][n] += a* E[j][n];
                     }
                 }
+
+                printf("- Passo %d\n\n", steps);
+                steps++;
                 print_matrix(E);
-                printf("\n");
-                
+                printf("------------------------------------------------------------\n\n");
+                break;
             }
-            break;
+            
         }
-        
     } 
 }
 
@@ -55,7 +60,10 @@ int main(){
         {-3,1,-2,1,-2},
         {1,3,-3,-2,6}
     };
+    printf("Matriz a ser escalonada: \n\n");
     print_matrix(E);
+    printf("------------------------------------------------------------\n\n");
+    printf("==> Passos do escalonamento: \n\n");
     gauss(E);
     // reverse_sub(E);
 }
