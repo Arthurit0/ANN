@@ -18,32 +18,17 @@ void bisection(double (*f)(double), double a, double b, int n) {
 }
 
 double f(double x) {
-    return pow(2.7182818,x)-2*pow(x,2)+x-1.5;
+    return sqrt(2*9.81*x)*tanh((sqrt(2*9.81*x)/(2*8.36))*4.3);
 }
-
-// Exemplo 2: Crescimento populacional
-// double P(double x){
-//     return 1000000 + exp(x) + (537142 / x) * (exp(x) - 1) - 1863961;
-// }
 
 int main(){
     // Ponto inicial do Intervalo
-    double a = -0.28075;
+    double a = 24.06;
     // Ponto final do Intervalo
-    double b = 0.95019;
+    double b = 204.08;
     // Número de Iterações
     double n = 12;
 
-    // Ponto inicial do Intervalo (ex2)
-    // double a1 = 0.001;
-    // Ponto final do Intervalo (ex2)
-    // double b1 = 2;
-    // Número de Iterações (ex2)
-    // int n1 = 20;
-
-    printf("\n1. Exemplo da função x³-2, [0,2]:\n\n");
     bisection(f, a, b, n);
 
-    // printf ("\n2. Problema do crescimento populacional:\n\n");
-    // bisection (P, a1, b1, n1);
 }

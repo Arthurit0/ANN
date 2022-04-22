@@ -17,24 +17,23 @@ void secante(double (*f)(double), double x0, double x1, int n){
             x0 = x1;
             x1 = x2;
             if(fx0 == fx1){
-                printf("x_%d = %.16f\n\nParei pois o denominador seria zero!", i+2, x2);
+                printf("x_%d = %.7f\n\nParei pois o denominador seria zero!", i+2, x2);
             }else{
-                printf("x_%d = %.16f\n", i+2, x2);
+                printf("x_%d = %.7f\n", i+2, x2);
             }
         }
     }
 }
 
-// Exemplo: f(x)= x³-2
 double f(double x){
-    return pow(x,3) - 2;
+    return ((9.81*x)/15.73)*(1-pow(M_E,(-15.73/x)*9.4))-30.2;
 }
 
 int main() {
     // Estimativa inicial 1
-    double x0 = 1;
+    double x0 = 26.87;
     // Estimativa inicial 2
-    double x1 = 2;
+    double x1 = 39.87;
     // Número de iterações
     int n = 5;
 

@@ -6,17 +6,17 @@ void false_position(double (*f)(double), double a, double b, int n){
     double fb = f(b); 
 
     if(fa * fb >= 0){
-        printf("O Teorema de Bolzano não sabe dizer se existe raiz para f no intervalo [%.16f, %.16f]", a, b);
+        printf("O Teorema de Bolzano não sabe dizer se existe raiz para f no intervalo [%.7f, %.7f]", a, b);
         return;
     }else{
         for(int i=0; i < n; i++){
             double x = (a * fb - b * fa) / (fb - fa);
             double fx = f(x);
 
-            printf("x_%d = %.16f\n", i+1, x);
+            printf("x_%d = %.7f\n", i+1, x);
 
             if(fx == 0){
-                printf("A raíz de f foi encontrada: ela é x = %.16f", x);
+                printf("A raíz de f foi encontrada: ela é x = %.7f", x);
                 return;
             }
 
@@ -33,18 +33,16 @@ void false_position(double (*f)(double), double a, double b, int n){
 }
 
 
-// Função Exemplo: x²-2
 double f(double x){
-    return pow(x,2) - 2;
+    return ((9.81*x)/15.73)*(1-pow(M_E,(-15.73/x)*9.4))-30.2;
 }
-
 
 int main(){
     //Intervalo inicial
-    double a = 1.0;
-    double b = 2.0;
+    double a = 25.22;
+    double b = 195.97;
     // Número de iterações
-    int n = 10;
+    int n = 11;
 
     false_position(f, a, b, n); 
 }

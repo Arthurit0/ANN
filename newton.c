@@ -11,10 +11,10 @@ void newton(double (*f)(double), double(*df)(double), double x0, int n){
             double x1 = x0 - f(x0) / der;
             der = df(x1);
             if(der == 0){
-                printf("x_%d = %.16f\n\nDerivada igual a 0!", i+1, x1);
+                printf("x_%d = %.7f\n\nDerivada igual a 0!", i+1, x1);
                 return;
             }else{
-                printf("x_%d = %.16f\n", i+1, x1);
+                printf("x_%d = %.7f\n", i+1, x1);
             }
             x0 = x1;
         }
@@ -23,17 +23,17 @@ void newton(double (*f)(double), double(*df)(double), double x0, int n){
 
 
 double f(double x){
-    return 2*(x+1)*(x-(1/2))*(x-1);
+    return ((9.81*x)/15.73)*(1-pow(M_E,(-15.73/x)*9.4))-30.2;
 }
 
 // Derivada da função, que também precisamos para o método de Newton
 double df(double x){
-    return 6*pow(x,2)-(2*x)-2;
+    return (9.81/15.73)*(-pow(M_E,-147.862/x)-((147.862*pow(M_E,-147.862/x))/x)+1);
 }
 
 int main() {
     // Estimativa Inicial
-    double x0 = -0.074;
+    double x0 = 27.97;
     // Número de Iterações
     int n = 5;
 
