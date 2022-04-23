@@ -23,11 +23,7 @@ void newton(double (*f)(double), double(*df)(double), double x0, int n){
 
 
 double f(double x){
-<<<<<<< Updated upstream
     return ((9.81*x)/15.73)*(1-pow(M_E,(-15.73/x)*9.4))-30.2;
-=======
-    return 2*(x+1)*(x-0.5)*(x-1);
->>>>>>> Stashed changes
 }
 
 // Derivada da função, que também precisamos para o método de Newton
@@ -37,11 +33,7 @@ double df(double x){
 
 int main() {
     // Estimativa Inicial
-<<<<<<< Updated upstream
     double x0 = 27.97;
-=======
-    double x0 = -0.03173;
->>>>>>> Stashed changes
     // Número de Iterações
     int n = 5;
 
