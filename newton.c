@@ -23,17 +23,22 @@ void newton(double (*f)(double), double(*df)(double), double x0, int n){
 
 
 double f(double x){
-    return ((9.81*x)/15.73)*(1-pow(M_E,(-15.73/x)*9.4))-30.2;
+    double g = 9.81, L = 8.36, t = 4.3;
+
+    return sqrt(2*g*x)*tanh((sqrt(2*g*x)/(2*L))*t)-8.83;
 }
 
 // Derivada da função, que também precisamos para o método de Newton
 double df(double x){
-    return (9.81/15.73)*(-pow(M_E,-147.862/x)-((147.862*pow(M_E,-147.862/x))/x)+1);
+    double g = 9.81, L = 8.36, t = 4.3;
+    double x1 = (sqrt(x)*t*sqrt(g))/sqrt(2)*L;
+
+    return ((sqrt(x)*tanh(x1))/(sqrt(2)*sqrt(g)))+(x*t*pow(sinh(x1),2))/2*L;
 }
 
 int main() {
     // Estimativa Inicial
-    double x0 = 27.97;
+    double x0 = 0.51;
     // Número de Iterações
     int n = 5;
 

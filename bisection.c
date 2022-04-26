@@ -18,14 +18,15 @@ void bisection(double (*f)(double), double a, double b, int n) {
 }
 
 double f(double x) {
-    return sqrt(2*9.81*x)*tanh((sqrt(2*9.81*x)/(2*8.36))*4.3);
+
+    return sqrt(2*9.81*x)*tanh((sqrt(2*9.81*x)/(2*8.36))*4.3)-8.83;
 }
 
 int main(){
     // Ponto inicial do Intervalo
-    double a = 24.06;
+    double a = 0.38;
     // Ponto final do Intervalo
-    double b = 204.08;
+    double b = 18.82;
     // Número de Iterações
     double n = 12;
 
