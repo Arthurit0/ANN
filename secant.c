@@ -26,14 +26,16 @@ void secante(double (*f)(double), double x0, double x1, int n){
 }
 
 double f(double x){
-    return ((9.81*x)/15.73)*(1-pow(M_E,(-15.73/x)*9.4))-30.2;
+    double R = 9.42, V = 1219.0;
+
+    return M_PI*pow(x,2)*((3*R-x)/3)-V;
 }
 
 int main() {
     // Estimativa inicial 1
-    double x0 = 26.87;
+    double x0 = 4.43;
     // Estimativa inicial 2
-    double x1 = 39.87;
+    double x1 = 17.88;
     // Número de iterações
     int n = 5;
 
