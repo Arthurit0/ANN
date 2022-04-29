@@ -26,16 +26,18 @@ void secante(double (*f)(double), double x0, double x1, int n){
 }
 
 double f(double x){
-    double L = 1.42, r = 1.45, V = 3.3;
+double r = 1.24, ps = 131.31;
 
-    return L*(0.5*M_PI*pow(r,2)-pow(r,2)*asin(x/r)-x*(sqrt(pow(r,2)-pow(x,2))))-3.3;
+    double vs = (4*M_PI*pow(r,3))/3; // Volume da esfera
+    double v = vs - ((ps*vs)/1000); // Volume acima da agua
+    return ((M_PI*pow(x,2))/3)*(3*r-x)-v; // Formula
 }
 
 int main() {
     // Estimativa inicial 1
-    double x0 = 0.22;
+    double x0 = 0;
     // Estimativa inicial 2
-    double x1 = 1.1;
+    double x1 = 2.4;
     // Número de iterações
     int n = 5;
 
