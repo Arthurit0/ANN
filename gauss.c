@@ -2,8 +2,8 @@
 #include <math.h>
 
 #define ROWS 4
-#define COLS 5
-int steps = 1;
+#define COLS 4
+
 
 void print_matrix(double matrix[ROWS][COLS]){
     for (int i = 0; i < ROWS; i++){
@@ -19,6 +19,7 @@ void print_matrix(double matrix[ROWS][COLS]){
 }
 
 void gauss(double E[ROWS][COLS]){
+    int steps = 1;
     for(int j=0; j<COLS-2;j++){
         for (int i = j; i < ROWS; i++){
             if (E[i][j] != 0){
@@ -55,10 +56,7 @@ void gauss(double E[ROWS][COLS]){
 int main(){
     // Matriz a ser escalonada
     double E[ROWS][COLS] = {
-        {2,4,6,2,4},
-        {1,2,-1,3,8},
-        {-3,1,-2,1,-2},
-        {1,3,-3,-2,6}
+        {-5,4,-1},{-3,-3,6},{4,-7,-3}
     };
     printf("Matriz a ser escalonada: \n\n");
     print_matrix(E);

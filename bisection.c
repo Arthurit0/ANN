@@ -17,17 +17,17 @@ void bisection(double (*f)(double), double a, double b, int n) {
     }
 }
 
-double f(double x) {
-    double L = 1.42, r = 1.45, V = 3.3;
-
-    return L*(0.5*M_PI*pow(r,2)-pow(r,2)*asin(x/r)-x*(sqrt(pow(r,2)-pow(x,2))))-3.3;
+double f(double t) {
+    double n = 116069052, lambda = 1.41*pow(10,-10);
+                                                // 25%
+    return (n+1)/(1+n*pow(M_E,-lambda*(n+1)*t))-(0.25*n);
 }
 
 int main(){
     // Ponto inicial do Intervalo
     double a = 0;
     // Ponto final do Intervalo
-    double b = 1.45;
+    double b = 2270;
     // Número de Iterações
     double n = 12;
 

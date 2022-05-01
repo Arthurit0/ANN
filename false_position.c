@@ -33,18 +33,16 @@ void false_position(double (*f)(double), double a, double b, int n){
 }
 
 
-double f(double x){
-    double r = 1.24, ps = 131.31;
-
-    double vs = (4*M_PI*pow(r,3))/3; // Volume da esfera
-    double v = vs - ((ps*vs)/1000); // Volume acima da agua
-    return ((M_PI*pow(x,2))/3)*(3*r-x)-v; // Formula
+double f(double t){
+    double n = 116069052, lambda = 1.41*pow(10,-10);
+                                                // 25%
+    return (n+1)/(1+n*pow(M_E,-lambda*(n+1)*t))-(0.25*n);
 }
 
 int main(){
     //Intervalo inicial
     double a = 0;
-    double b = 2.48;
+    double b = 2270;
     // Número de iterações
     int n = 11;
 
