@@ -31,12 +31,12 @@ def build_func(x, coefs):
 
 
 if __name__ == '__main__':
-    x = [-2.176, -1.03, -0.685, 0.755, 2.141, 3.035, 3.847]
+    x = [0.997,1.674,2.699]
     y = []
 
     def f(x):
         #return np.cos(np.sin(np.log(x**2)))
-        return pow(math.cos(x),3)+2*pow(math.cos(x),2)+1 
+        return np.cos(np.sin(np.log(x**2)))
 
     for i in x:
         y.append(f(i))

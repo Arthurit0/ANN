@@ -1,5 +1,5 @@
-#include<stdio.h>
-#include<math.h>
+#include <stdio.h>
+#include <math.h>
 
 void newton(double (*f)(double), double (*df)(double), double x0, double n)
 {
@@ -12,17 +12,25 @@ void newton(double (*f)(double), double (*df)(double), double x0, double n)
     }
 }
 
-double f(double x){
-     return 168.6972-110.72*x+12*pow(x,2);
-}
-double df(double x){
-    //double pi = 3.14159265358979323846;
-    return -110.72+24*x;
+double f(double x)
+{
+    double g = 9.81, c = 15.31, v = 35.69, t = 7.16;
+
+    return (g * x / c) * (1 - pow(M_E, (-(c / x) * t))) - v;
 }
 
-int main(int argc, char *argv[]){
-    
-    double x0 = 2.8 ;
+// Derivada da função, que também precisamos para o método de Newton
+double df(double x)
+{
+    double g = 9.81, c = 15.31, v = 35.69, t = 7.16;
+
+    return ((x * (1 - pow(M_E, -(c / x) * t))) / c);
+}
+
+int main(int argc, char *argv[])
+{
+
+    double x0 = 29.99;
     int n = 5;
 
     newton(f, df, x0, n);

@@ -29,36 +29,17 @@ void seidel(double A[ROWS][ROWS], double B[ROWS], double est[ROWS], int n)
 
 int main(int argc, char const *argv[])
 {
-    double m1 = 176,
-           m2 = 80,
-           m3 = 74,
-           u1 = 0.16,
-           u2 = 0.44,
-           u3 = 0.47,
-           g = 9.81,
-           ang = 0.733038, // 42 graus em rad
-        F1h = m1 * g * (sin(ang)),
-           F2h = m2 * g * (sin(ang)),
-           F3h = m3 * g * (sin(ang)),
-           F1v = m1 * g * (cos(ang)),
-           F2v = m2 * g * (cos(ang)),
-           F3v = m3 * g * (cos(ang)),
-           f1 = u1 * F1v,
-           f2 = u2 * F2v,
-           f3 = u3 * F3v;
-
-    printf("sen %.7lf cos %.7lf", F1h, F1v);
 
     // Coeficientes do Sistema em que aplicaremos a técnica
-    double A[ROWS][ROWS] = {{m3, 1, 0},
-                            {m2, -1, 1},
-                            {m3, 0, -1}};
+    double A[ROWS][ROWS] = {{-1.77, 0.07, -0.69},
+                            {3.42, -9.16, 4.73},
+                            {4.59, -4.24, 9.85}};
     // Termos independentes
-    double B[ROWS] = {F1h - f1, F2h - f2, F3h - f3};
+    double B[ROWS] = {-3.18, -4.84, -2.12};
     // Estimativa de soluções
-    double est_ini[ROWS] = {50, 50, 50};
+    double est_ini[ROWS] = {-4.88, 1.8, 1.28};
     // Iterações
-    int n = 200;
+    int n = 18;
 
     seidel(A, B, est_ini, n);
 }

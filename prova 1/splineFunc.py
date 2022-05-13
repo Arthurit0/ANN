@@ -44,12 +44,12 @@ def spline(x, y):
     return s
 
 
-x = [-1.821, -0.227, 0.838, 1.864, 2.919, 4.48, 4.928, 6.845]
+x = [0.414, 1.505, 1.905, 2.856]
 y = []
 
 
 def f(x):
-    return math.sin(math.sqrt(math.pi+(x*x)))
+    return np.cos(np.sin(np.log(x**2)))
 
 
 for xi in x:
