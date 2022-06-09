@@ -25,8 +25,8 @@ double func2(double x) { return cos(x * x); }
 double func3(double x) { return x * x + 1; }
 
 int main() {
-    double a = 0, b = 1;
-    int n = 1000000000;  // Número de Intervalos
+    double a = -1, b = 1;
+    int n = 1000000000;  // Número de Intervalos / Trapézios
 
-    trapz(func1, a, b, n);
+    trapz(func2, a, b, n);
 }
