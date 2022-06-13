@@ -49,7 +49,7 @@ int main(int argc, char const *argv[]) {
 
     double coluna_F1[numElemsFirstCol];
     for (int i = 0; i < numElemsFirstCol; i++) {
-        coluna_F1[i] = trapz(f, a, b, (i + 1) * n);
+        coluna_F1[i] = trapz(f, a, b, (int)pow(2, 1) * n);
     }
     romberg(coluna_F1);
 
