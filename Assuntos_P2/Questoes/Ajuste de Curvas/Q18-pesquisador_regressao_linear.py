@@ -32,25 +32,24 @@ def build_func(coefs):
     return temp
 
 if __name__ == '__main__':
+
+    x = [0.6749, 2.0822, 2.5733, 3.5434, 3.6825, 4.7012, 5.5837, 6.786, 7.4124, 8.0704, 9.2043, 9.5578]
+    y = [9.9981, 4.0549, 3.4838, 2.6482, 2.6735, 2.2458, 1.9893, 1.8556, 1.7757, 1.607, 1.4703, 1.4909]
+    values = [0.8946, 4.701, 8.7648]
+
     
+    # sqrt( y ) = 1/b + a/b * 1/sqrt( x )
 
-    x = [0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7]
-    y = [1.36062, 0.98025, 0.80478, 0.70018, 0.62911, 0.57349, 0.53122, 0.49737, 0.46954, 0.44559, 0.42424, 0.40679, 0.39078, 0.37672]
-    values = [0.7, 6.1, 6.6]
-
-
-    # 1/y² = 1/a² + 2bx
-    
-    y_ = 1/np.power(y, 2)
-    x_ = x
+    y_ = np.sqrt(y)
+    x_ = 1/np.sqrt(x)
 
     grau = 1
 
     coefs = best_poly(x_, y_, grau)
     a0, a1 = best_poly(x_, y_, grau)
 
-    a = 1/np.sqrt(a0)
-    b = a1/2
+    b = 1/a0
+    a = a1 * b
 
     p = build_func(coefs)
     n = len(coefs)
@@ -62,4 +61,4 @@ if __name__ == '__main__':
 
     n = len(values)
     for xi in range(n):
-        print(f'y(x{xi+1}) = {a/(np.sqrt(1+2*b*(a**2)*values[xi]))}')
+        print(f'y(x{xi+1}) = {(a0 + a1 * 1/np.sqrt(values[xi]))**2}')

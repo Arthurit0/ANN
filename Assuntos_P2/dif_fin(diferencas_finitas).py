@@ -30,18 +30,13 @@ def dif_fin(coeffs, y):
 if __name__ == '__main__':
     # exemplo 1
     def f(x):
-        return math.exp(x)
-    x0 = 0
+        return math.sqrt(math.cos(x**2) + x)
+    x0 = 2.9407
     k = 5
     n = 8  # número de pontos
     # Queremos pontos no intervalo [x0-e, x0+e]
     e = 0.1
-    x = np.linspace(x0-e, x0+e, n)
+    x = [2.8121, 3.0045, 3.0998]
     # Se não for dada a lista, é preciso calculá-la utilizando a função
     y = [f(xi) for xi in x]
 
-    coeffs = coeffs_dif_fin(x0, x, k)
-    aprox = dif_fin(coeffs, y)
-
-    print(f'{coeffs = }')
-    print(f'{aprox = }')
