@@ -13,11 +13,11 @@ def trapz(f, a, b, n):
 def f(x):
     return math.sqrt(math.sin(math.cos(math.log(x**2+1)+2)+3)+4)
 
-a = -1.963
-b = 1.838
+a = [0.397, 1.537, 1.999, 2.77, 3.604, 3.654, 4.138]
+b = [2.541, 2.213, 2.0, 2.559, 2.539, 2.395, 1.01]
 
-n = [2, 17, 30, 50, 84, 113, 248, 389, 632, 868, 3371, 6838]
+n = 5
 
-for i in range(len(n)):
-    r = trapz(f, a, b, n[i])
-    print(f'Ponto {n[i]} = {r}')
+for i in range(n):
+    r = trapz(f, a[n], b[n], 2)
+    print(f'Ponto {a[n]} = {r}')

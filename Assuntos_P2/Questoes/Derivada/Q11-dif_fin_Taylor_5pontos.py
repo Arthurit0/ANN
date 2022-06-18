@@ -31,10 +31,10 @@ def prod(coeffs, y):
 
 if __name__ == '__main__':
     def f(x):
-        return 3 * math.cos((x**2-1)**(1/3))
+        return x**2 * math.cos(x - 1) * math.exp(-3 * x ** 2)
     def p(xp):
-        x0 = 2.2867
-        x = [2.0632, 2.1239, 2.284, 2.3332, 2.4031, 2.4797]
+        x0 = 0.2368
+        x = [0.0102, 0.083, 0.1157, 0.1609, 0.2315, 0.2743, 0.3318, 0.3802, 0.4081, 0.4624]
         y = [f(xi) for xi in x]
         
         coeffs = fin_dif(x0, x, 1)
@@ -45,10 +45,17 @@ if __name__ == '__main__':
         
         coeffs = fin_dif(x0, x, 3)
         f_3 = prod(coeffs, y)
-        return f(x0) + f_1*(xp - x0) + (f_2/2)*((xp - x0)**2) + (f_3/6)*((xp - x0)**3) 
+
+        coeffs = fin_dif(x0, x, 4)
+        f_4 = prod(coeffs,y)
+
+        coeffs = fin_dif(x0, x, 5)
+        f_5 = prod(coeffs,y)
+
+        return f(x0) + f_1*(xp - x0) + (f_2/2)*((xp - x0)**2) + (f_3/6)*((xp - x0)**3) + (f_4/24)*((xp - x0)**4) + (f_5/120)*((xp - x0)**5)
     
     
-    values = [2.1243, 2.3617, 2.4393]
+    values =  [0.0588, 0.2321, 0.2848, 0.3345, 0.3541]
     px = [p(vi) for vi in values]
     print(f'{px = }')
 

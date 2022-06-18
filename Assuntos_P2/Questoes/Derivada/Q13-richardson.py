@@ -1,4 +1,7 @@
 
+from math import pi, sin, tan
+
+
 def richardson(col_1):
     n = len(col_1)
     for i in range(n-1):
@@ -13,17 +16,16 @@ def richardson(col_1):
 if __name__ == '__main__':
     # exemplo 1
     def f(x):
-        return x ** x
+        return x ** (x ** -x)
 
-    x0 = 2
-    h = 0.1
-    err_order = 4
+    x0 = 1.49693
+    h = 0.44232
+    err_order = [4, 5, 6, 7, 8]
 
     def F1(h):
         return (f(x0+h) - f(x0)) / h
 
-    col_F1 = [F1(h/2 ** i) for i in range(err_order)]
-
-    aprox = richardson(col_F1)
-
-    print(f'{aprox = }')
+    for order in err_order:
+        col_F1 = [F1(h/2 ** i) for i in range(order)]
+        aprox = richardson(col_F1)
+        print(f'O(h^{order}) = {aprox}')
