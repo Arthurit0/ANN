@@ -1,7 +1,7 @@
 #include <math.h>
 #include <stdio.h>
 
-#define error_order 32
+#define error_order 8
 // numElemsFirstCol deve ser error_order / 2
 #define numElemsFirstCol error_order / 2
 
@@ -34,17 +34,16 @@ void romberg(double array[]) {
 }
 
 double f(double x) {
-    return exp(-x * x);
+    return exp(x) * sin(x) / 1 + pow(x, 2);
 }
 
 int main(int argc, char const *argv[]) {
     // Exemplo:
     // Aproximar int exp(-x*x), de 0 a 1
-    double a = 0, b = 1, h = 0.5;
+    double a = 0.28, b = 1.28, h = 0.2;
 
     int n = (int)((b - a) / h);
 
-    printf("n = %.16f\n\n", (double)n);
     printf("Error_order: %d \nnumElemensFirstCol: %d\n\n", error_order, numElemsFirstCol);
 
     double coluna_F1[numElemsFirstCol];

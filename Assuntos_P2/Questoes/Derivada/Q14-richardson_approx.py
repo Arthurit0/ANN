@@ -19,13 +19,13 @@ if __name__ == '__main__':
         return x ** (x ** -x)
 
     x0 = 1.49693
-    h = 0.44232
-    err_order = [4, 5, 6, 7, 8]
+    # h = 0.44232
+    err_order = 3
 
     def F1(h):
         return (f(x0+h) - f(x0)) / h
 
-    for order in err_order:
-        col_F1 = [F1(h/2 ** i) for i in range(order)]
-        aprox = richardson(col_F1)
-        print(f'O(h^{order}) = {aprox}')
+    col_F1 = [-0.19283908639579295, -0.6151830674679317, -0.8234196366750695]
+
+    aprox = richardson(col_F1)
+    print(f'O(h^{err_order}) = {aprox}')
