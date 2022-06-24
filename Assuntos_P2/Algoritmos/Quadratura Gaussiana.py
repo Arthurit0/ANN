@@ -21,7 +21,7 @@ def quadratura(f,x,c):
 
 def change(f,a,b):
     def g(u):
-        return f(a + (b-a) * (u + 1) / 2) * (b-a) / 2
+        return f(a + (b - a) * (u + 1) / 2) * (b - a) / 2
     return g
 
 
