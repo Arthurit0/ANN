@@ -24,7 +24,6 @@ def change(f,a,b):
         return f(a + (b - a) * (u + 1) / 2) * (b - a) / 2
     return g
 
-
 def f_1(x):
     return (x+1/x)**2
 
@@ -44,7 +43,6 @@ if __name__ == '__main__':
     a = 0.595
     b = 2.284
     g = change(f_1,a,b)
-
     
     approx = quadratura(g, nós[10], pesos[10])
     print(f'{approx =}')
