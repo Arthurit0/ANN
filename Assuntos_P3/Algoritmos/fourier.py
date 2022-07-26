@@ -12,14 +12,14 @@ def trapz(f, a,b ,n):
 def coeff_a(f, n, num_intervals=256):
     # Retorna uma aproximação da integral de (1/pi) * f(x) * cos(n*x) no intervalo de -pi a pi
     def func(x):
-        f * np.cos(n * x)
+        f(x) * np.cos(n * x)
 
     return trapz(func, -np.pi, np.pi, num_intervals) / np.pi
 
 def coeff_b(f, n, num_intervals=256):
     # Retorna uma aproximação da integral de (1/pi) * f(x) * sin(n*x) no intervalo de -pi a pi
     def func(x):
-        f * np.sin(n * x)
+        f(x) * np.sin(n * x)
 
     return trapz(func, -np.pi, np.pi, num_intervals) / np.pi
 
