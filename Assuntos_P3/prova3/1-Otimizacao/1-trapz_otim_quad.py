@@ -1,3 +1,4 @@
+import math
 import numpy as np
 #import matplotlib.pyplot as plt
 
@@ -56,7 +57,7 @@ def criar_funcoes(lista_funcoes):
 
 #funcao
 def f(x):
-    return 2 * np.sin(x) + np.cos(-x ** 2)
+    return 2 * math.sin(x) + math.cos(-x**2)
 
 
 def quadratura(funcao, pontos, pesos):
@@ -200,9 +201,9 @@ if __name__ == '__main__':
               0.06267204833410907, 0.04060142980038694, 0.04060142980038694, 0.017614007139152118, 0.017614007139152118]
 
     funcs = ['1', 'x', 'x**2', 'x**3', 'x**4', 'x**5']
-    values = [-0.771, 1.056, 1.597] #x1, x2, x3
-    a = -0.9
-    b = 2.491
+    values = [-0.254, 0.737, 1.455] #x1, x2, x3
+    a = -1.016
+    b = 2.357
 
     funcs = criar_funcoes(funcs)
 
